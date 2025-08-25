@@ -1,0 +1,7 @@
+echo "# Atividade-Programa-o-Estruturada" >> README.md 
+git init 
+git add README.md 
+git commit -m "primeiro commit" 
+git branch -M main 
+git remote add origin https://github.com/hellyneandrade/Atividade-Programa-o-Estruturada.git
+ git push -u origin main

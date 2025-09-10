@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <match.h>
+int raizes(float a, float b, float c, float *x1, float *x2) {
+    float delta;
+
+    if (a == 0) {
+        return 0;
+    }
+
+    delta = b * b - 4 * a * c;
+
+    if (delta < 0) {
+        return 0;
+    } 
+    else if (delta == 0) {
+        *x1 = -b / (2 * a);
+        *x2 = *x1;
+        return 1;
+    } 
+    else {
+        *x1 = (-b + sqrt(delta)) / (2 * a);
+        *x2 = (-b - sqrt(delta)) / (2 * a);
+        return 2;
+    }
+}
+
+int main() {
+    float a, b, c;
+    float x1, x2;
+    int qtd_raizes;
+
+    printf("Digite os coeficientes a, b e c: ");
+    scanf("%f %f %f", &a, &b, &c);
+
+    qtd_raizes = raizes(a, b, c, &x1, &x2);
+
+    if (qtd_raizes == 0) {
+        printf("N�O EXISTEM RA�ZES REAIS PARA ESTA EQUA��O\n");
+    } 
+    else if (qtd_raizes == 1) {
+        printf("A equa��o possui uma raiz real: x = %.2f\n", x1);
+    } 
+    else if (qtd_raizes == 2) {
+        printf("A equa��o possui duas ra�zes reais: x1 = %.2f e x2 = %.2f\n", x1, x2);
+    }
+
+    system("pause");
+    return 0;
+}
